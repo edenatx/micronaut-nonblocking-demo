@@ -72,5 +72,13 @@ shadowJar {
     mergeServiceFiles()
 }
 
+
+task buildNativeExecutable(type:Exec) {
+    workingDir "${buildDir}/libs"
+    commandLine "native-image", "--no-server", "-jar", "micronaut-nonblocking-demo-0.1-all.jar"
+}
+
+buildNativeExecutable.dependsOn(shadowJar)
+
 run.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')

@@ -1,6 +1,5 @@
 package micronaut.nonblocking.demo
 
-import io.micronaut.context.annotation.Configuration
 import io.micronaut.runtime.Micronaut
 
 object Application {
